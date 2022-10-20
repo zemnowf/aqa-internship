@@ -1,0 +1,3 @@
+rootProject.name = 'aqa2'
+include 'internship-aqa-string-test'
+
