@@ -4,13 +4,18 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class WebDriverSettings {
     public ChromeDriver driver;
+    public LoginPage loginPage;
 
     @BeforeEach
     public void setUp(){
         System.setProperty("webdriver.chrome.driver", "D:/Program Files/chromedriver.exe");
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        loginPage = new LoginPage(driver);
     }
 
     @AfterEach
