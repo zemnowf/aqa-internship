@@ -13,6 +13,17 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
     testImplementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.5.0'
+    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '4.5.1'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.3'
+    testImplementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.3'
+
+    testCompileOnly('org.assertj:assertj-core:3.23.1')
+
+    testImplementation group: 'com.codeborne', name: 'selenide', version: '6.7.2'
 }
 
 test {
