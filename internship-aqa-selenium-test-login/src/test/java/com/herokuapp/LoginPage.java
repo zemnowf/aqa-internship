@@ -1,5 +1,6 @@
 package com.herokuapp;
 
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -37,16 +38,19 @@ public class LoginPage{
         return this;
     }
 
+    @Step("Password insert")
     public LoginPage typePassword(String password){
         passwordField.sendKeys(password);
         return this;
     }
 
+    @Step("Click on login submit button")
     public SecurePage clickSubmitButton(){
         submitButton.click();
         return new SecurePage(driver);
     }
 
+    @Step("Valid authorization")
     public SecurePage loginWithValidCredentials(String userLogin, String password){
         this.typeLogin(userLogin);
         this.typePassword(password);
@@ -54,6 +58,7 @@ public class LoginPage{
         return new SecurePage(driver);
     }
 
+    @Step("Invalid authorization")
     public LoginPage loginWithInvalidCredentials(String userLogin, String password){
         this.typeLogin(userLogin);
         this.typePassword(password);
@@ -61,34 +66,14 @@ public class LoginPage{
         return new LoginPage(driver);
     }
 
+    @Step("Checking error message")
     public String getErrorText(){
         return errorText.getText();
     }
 
+    @Step("Checking success message")
     public String getSuccessText(){
         return successText.getText();
-    }
-
-    @Test
-    public void testSuccessLogin() {
-        driver.get("https://the-internet.herokuapp.com/login");
-
-        loginField.sendKeys("tomsmith");
-        passwordField.sendKeys("SuperSecretPassword!");
-
-        submitButton.click();
-    }
-
-    @Test
-    public void testFailLogin() {
-        driver.get("https://the-internet.herokuapp.com/login");
-
-        driver.findElement(By.xpath("//*[@id=\"username\"]")).sendKeys("wrongUser");
-        driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("WrongPassword!");
-
-        driver.findElement(By.cssSelector("#login > button")).click();
-
-
     }
 
 }

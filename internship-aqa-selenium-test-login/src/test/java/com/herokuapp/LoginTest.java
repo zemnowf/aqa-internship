@@ -1,5 +1,6 @@
 package com.herokuapp;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,9 +13,11 @@ import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@DisplayName("Herokuapp login web tests")
 public class LoginTest extends WebDriverSettings{
 
     @Test
+    @DisplayName("Invalid credentials authorization")
     public void testFailedLogin() {
         driver.get("https://the-internet.herokuapp.com/login");
 
@@ -26,6 +29,7 @@ public class LoginTest extends WebDriverSettings{
     }
 
     @Test
+    @DisplayName("Valid credentials authorization")
     public void testSuccessLogin(){
         driver.get("https://the-internet.herokuapp.com/login");
 

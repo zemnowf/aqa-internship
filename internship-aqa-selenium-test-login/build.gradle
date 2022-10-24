@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id "io.qameta.allure" version "2.11.1"
 }
 
 group 'org.example'
@@ -24,6 +25,15 @@ dependencies {
     testCompileOnly('org.assertj:assertj-core:3.23.1')
 
     testImplementation group: 'com.codeborne', name: 'selenide', version: '6.7.2'
+
+    testImplementation group: 'io.qameta.allure', name: 'allure-junit5', version: '2.13.6'
+    testImplementation group: 'io.qameta.allure', name: 'allure-assertj', version: '2.13.6'
+    testImplementation group: 'io.qameta.allure', name: 'allure-commandline', version: '2.13.6'
+    testImplementation group: 'io.qameta.allure', name: 'allure-rest-assured', version: '2.13.6'
+    testImplementation group: 'io.qameta.allure', name: 'allure-java-commons', version: '2.13.6'
+
+    runtimeOnly group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.7'
+
 }
 
 test {
