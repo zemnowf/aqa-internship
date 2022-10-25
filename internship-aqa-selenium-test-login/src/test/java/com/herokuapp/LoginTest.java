@@ -2,11 +2,7 @@ package com.herokuapp;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -33,7 +29,6 @@ public class LoginTest extends WebDriverSettings{
     public void testSuccessLogin(){
         driver.get("https://the-internet.herokuapp.com/login");
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         loginPage = PageFactory.initElements(driver, LoginPage.class);
 
         loginPage.loginWithValidCredentials("tomsmith", "SuperSecretPassword!");
