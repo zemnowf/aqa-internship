@@ -1,6 +1,7 @@
 package ninja.catfact.steps;
 
 import io.qameta.allure.Step;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
@@ -12,7 +13,7 @@ import static io.restassured.RestAssured.given;
 
 public class BreedSteps {
     private static final RequestSpecification REQUEST_SPECIFICATION_BREEDS =
-            new RequestSpecBuilder()
+            new RequestSpecBuilder().addFilter(new AllureRestAssured())
                     .setBaseUri("https://catfact.ninja/")
                     .setBasePath("breeds").build();
 

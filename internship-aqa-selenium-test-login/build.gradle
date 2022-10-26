@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id "io.qameta.allure" version "2.11.1"
     id "io.qameta.allure-adapter" version "2.11.2"
+    id "io.freefair.aspectj" version "5.3.3.3"
 }
 
 group 'org.example'
@@ -33,12 +34,15 @@ dependencies {
     testImplementation group: 'io.qameta.allure', name: 'allure-rest-assured', version: '2.13.6'
     testImplementation group: 'io.qameta.allure', name: 'allure-java-commons', version: '2.13.6'
 
-    runtimeOnly group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.7'
+    testImplementation 'org.aspectj:aspectjrt:1.9.9.1'
+
+    implementation group: 'io.qameta.allure', name: 'allure-selenide', version: '2.18.1'
+
+    testImplementation 'org.slf4j:slf4j-log4j12:1.7.32'
 
 }
 
 test {
     useJUnitPlatform()
 }
-
 

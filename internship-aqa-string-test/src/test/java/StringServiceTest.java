@@ -19,7 +19,7 @@ public class StringServiceTest {
             }
 
             printWriter = new PrintWriter(file);
-            printWriter.println("test string");
+            printWriter.println("testf string");
             printWriter.close();
 
         } catch (IOException e){
@@ -51,7 +51,7 @@ public class StringServiceTest {
 
     @AfterAll
     static void vanishFile(){
-        file.delete();
+        //file.delete();
     }
 
 }
