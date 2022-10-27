@@ -1,4 +1,5 @@
 rootProject.name = 'aqa2'
 include 'internship-aqa-string-test'
 include 'internship-aqa-selenium-test-login'
+include 'jdbc-project'
 

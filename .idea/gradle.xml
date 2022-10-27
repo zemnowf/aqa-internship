@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/internship-aqa-selenium-test-login" />
             <option value="$PROJECT_DIR$/internship-aqa-string-test" />
+            <option value="$PROJECT_DIR$/jdbc-project" />
           </set>
         </option>
       </GradleProjectSettings>

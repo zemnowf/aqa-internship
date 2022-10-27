@@ -16,8 +16,6 @@ public class WebDriverSettings {
     @BeforeEach
     public void setUp(){
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-        log.info("driver run, open browser");
-        log.info("run test");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         loginPage = new LoginPage(driver);
