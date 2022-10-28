@@ -1,28 +1,15 @@
-package com.zemnow;
+package com.zemnow.service;
 
 import com.zemnow.entity.User;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DatabaseConfiguration {
-    public Connection connectToDb(){
-        Connection connection = null;
-        try {
-            Class.forName("org.postgresql.Driver");
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/user_database",
-                    "postgres", "Vivvt565");
-            if(connection!=null){
-                System.out.println("Connection established");
-            } else {
-                System.out.println("Connection failed");
-            }
-        } catch (Exception e){
-            System.out.println(e);
-        }
-        return connection;
-    }
+public class UserService {
 
     public void createTable(Connection connection, String table_name){
         Statement statement;
@@ -51,7 +38,7 @@ public class DatabaseConfiguration {
         Statement statement;
         try {
             String query = String.format("insert into user_table (id, first_name, last_name, email, password, birthday) " +
-                    "values ('%s', '%s', '%s', '%s', '%s', '%s');", user.getId(), user.getFirstName(), user.getLastName(),
+                            "values ('%s', '%s', '%s', '%s', '%s', '%s');", user.getId(), user.getFirstName(), user.getLastName(),
                     user.getEmail(), user.getPassword(), Date.valueOf(user.getDate()));
 
             statement=connection.createStatement();
@@ -78,6 +65,7 @@ public class DatabaseConfiguration {
                 user.setPassword(result.getString("password"));
                 user.setDate(result.getString("birthday"));
             }
+            System.out.println("read user with id " + result.getString("id") + ": ");
         } catch (Exception e){
             System.out.println(e);
         }
@@ -100,7 +88,7 @@ public class DatabaseConfiguration {
                         result.getString("password"),
                         result.getString("birthday")));
             }
-            System.out.println("Users read");
+            System.out.println("get all users");
         } catch (Exception e){
             System.out.println(e);
         }
@@ -113,9 +101,23 @@ public class DatabaseConfiguration {
             String query = String.format("update user_table set password='%s' where id = '%s'", newPassword, id);
             statement=connection.createStatement();
             statement.executeUpdate(query);
-            System.out.println("Password has been changed");
+            System.out.println("user with id " + id + " password was changed with " + newPassword);
         } catch (Exception e){
             System.out.println(e);
         }
     }
+
+    public void deleteUserById(Connection connection, Integer id) {
+        Statement statement;
+        try {
+            String query = String.format("delete from user_table where id = '%s'", id);
+
+            statement = connection.createStatement();
+            statement.executeUpdate(query);
+            System.out.println("User with id " + id + " was deleted");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
 }
