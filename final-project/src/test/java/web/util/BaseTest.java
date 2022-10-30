@@ -2,14 +2,12 @@ package web.util;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 
-public class BaseTest {
+@ExtendWith(ScreenshotExtension.class)
+public class BaseTest extends ScreenshotExtension{
     protected ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-
-    protected static final String email = "salondznts@gmail.com";
-    protected static final String password = "testpassword";
-    protected static final String username = "Daniil";
 
 
     @BeforeEach

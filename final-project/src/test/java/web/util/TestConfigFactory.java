@@ -3,6 +3,7 @@ package web.util;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigBeanFactory;
 import com.typesafe.config.ConfigFactory;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 public class TestConfigFactory {
     private Config config;
