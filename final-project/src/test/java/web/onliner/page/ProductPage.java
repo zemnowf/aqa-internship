@@ -1,6 +1,7 @@
 package web.onliner.page;
 
 import io.qameta.allure.Step;
+import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -52,19 +53,14 @@ public class ProductPage extends BasePage {
         return this;
     }
 
-    public ProductPage switchToSideBar(){
-        sideBar.switchTo();
-        goToCartButton.click();
-        return this;
-    }
-
-    public String getCartIconValue(){
-        return cartIcon.getText();
-    }
-
-    public ProductPage clickOnCartButton(){
-        cartButton.click();
-        return this;
+    @Step("Click on the shopping cart icon")
+    public CartPage clickOnCartButton(){
+        try{
+            cartButton.click();
+        } catch (Exception e){
+            goToCartButton.click();
+        }
+        return new CartPage(driver);
     }
 
     public ProductPage clickOnConfirmCityButton(){

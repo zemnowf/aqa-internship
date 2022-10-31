@@ -1,7 +1,9 @@
 package web.onliner;
 
+import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import web.onliner.page.CartPage;
 import web.onliner.page.ProductPage;
 import web.onliner.page.SearchPage;
 import web.util.BaseTest;
@@ -21,6 +23,7 @@ public class OnlinerTest extends BaseTest {
             + "аккумулятор 4500 мАч, 2 SIM, влагозащита IP67";
 
     @Test
+    @DisplayName("Search product")
     public void searchProduct(){
         SearchPage searchPage = new SearchPage(driver.get());
         searchPage.searchProduct(productName);
@@ -30,6 +33,7 @@ public class OnlinerTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Adding the product into the cart from product’s page")
     public void addProductToCart(){
         ProductPage productPage = new ProductPage(driver.get(), productUrl);
         assertEquals(productDescription, productPage.getDescription());
@@ -38,6 +42,29 @@ public class OnlinerTest extends BaseTest {
         assertEquals("В корзине", productPage.getInCartText());
     }
 
+    @Test
+    @DisplayName("Added product is displayed in the cart")
+    public void checkProductInCart(){
+        ProductPage productPage = new ProductPage(driver.get(), productUrl);
+        assertEquals(productDescription, productPage.getDescription());
+        productPage.addProductToCart();
+        productPage.clickOnConfirmCityButton();
+        assertEquals(productName, productPage.clickOnCartButton().getProductInfoInCart());
+    }
 
+    @Test
+    @DisplayName("Removing a product from the cart")
+    public void removeProductFromTheCart(){
+        ProductPage productPage = new ProductPage(driver.get(), productUrl);
+        assertEquals(productDescription, productPage.getDescription());
+        productPage.addProductToCart();
+        productPage.clickOnConfirmCityButton();
+        productPage.clickOnCartButton();
+        CartPage cartPage = new CartPage(driver.get());
+        cartPage.clickOnRemoveProductButton();
+        cartPage.clickOnCloseProductButton();
+        assertEquals("Ваша корзина пуста", cartPage.getEmptyCartInfo());
+
+    }
 
 }

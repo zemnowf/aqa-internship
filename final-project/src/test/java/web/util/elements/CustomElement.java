@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class CustomElement {
-    private static final Duration DEFAULT_TIMEOUT_SECONDS = Duration.ofSeconds(30);
+    private static final Duration DEFAULT_TIMEOUT_SECONDS = Duration.ofSeconds(5);
     protected WebElement webElement;
     protected WebDriver driver;
     protected WebDriverWait wait;
