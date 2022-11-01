@@ -13,6 +13,7 @@ public class BaseTest extends ScreenshotExtension{
     @BeforeEach
     public void createDriver(){
         driver.set(WebDriverFactory.getWebDriver());
+        driver.get().manage().window().maximize();
     }
 
     @AfterEach
