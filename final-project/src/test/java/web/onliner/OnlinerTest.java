@@ -2,6 +2,7 @@ package web.onliner;
 
 import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import web.onliner.page.CartPage;
 import web.onliner.page.ProductPage;
@@ -11,6 +12,7 @@ import web.util.BaseTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("Onliner Tests")
+@Tag("UI")
 public class OnlinerTest extends BaseTest {
 
     protected static final String productName = "Смартфон Samsung Galaxy A52 SM-A525F/DS 4GB/128GB (черный)";

@@ -2,6 +2,7 @@ package web.relax;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import web.relax.page.PlacePage;
 import web.relax.page.PosterPage;
@@ -12,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("Relax Test")
+@Tag("UI")
 public class RelaxTest extends BaseTest {
 
     protected static final String placeName = "Luna";

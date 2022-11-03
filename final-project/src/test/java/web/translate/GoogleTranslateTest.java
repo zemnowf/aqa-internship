@@ -1,6 +1,7 @@
 package web.translate;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import web.translate.page.MainPage;
 import web.util.BaseTest;
@@ -8,6 +9,7 @@ import web.util.BaseTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("Google Translate Tests")
+@Tag("UI")
 public class GoogleTranslateTest extends BaseTest {
 
     protected static final String text = "Test";

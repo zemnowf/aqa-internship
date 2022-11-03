@@ -2,11 +2,9 @@ package web.util;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 
-@ExtendWith(ScreenshotExtension.class)
-public class BaseTest extends ScreenshotExtension{
+public class BaseTest {
     protected ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
 

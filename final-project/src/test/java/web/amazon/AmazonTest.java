@@ -9,6 +9,7 @@ import web.util.BaseTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("Amazon Tests")
+@Tag("UI")
 public class AmazonTest extends BaseTest {
 
     protected static final String email = "salondznts@gmail.com";
